@@ -15,6 +15,17 @@ const saveDataToLocalStore = () =>{
           alert('Please!! Enter a valid input')
      }
      else{
-        let product =selectElement('#products')
+        let product =selectElement('#products');
+        product.innerHtml ="";
+        let data = getItem();
+        data[productName.value] = productPrice.value;
+        let dataConvert =JSON.stringify(data)
+        localStroage.setItem('product', dataConvert);
+
+        displayData(data);
+        displayData();
      }
+     productName.value="";
+     productPrice.value="";
+
 }
